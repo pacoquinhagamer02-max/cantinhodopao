@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cardápio — Padaria Cantinho do Pão</title>
+<meta name="theme-color" content="#1E2621">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cardápio — Padaria Cantinho do Pão">
+<meta property="og:description" content="Monte seu pedido e finalize direto no WhatsApp. Salgados, pães, bolos e bebidas fresquinhos.">
+<meta property="og:url" content="https://pacoquinhagamer02-max.github.io/cantinhodopao/">
+<meta property="og:image" content="https://pacoquinhagamer02-max.github.io/cantinhodopao/assets/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --board:#1E2621; --board2:#26312A; --board3:#2E3B33;
+  --chalk:#F1ECDC; --chalk-dim:#AEBBAF; --chalk-faint:#748076;
+  --gold:#D4AF4E; --gold-d:#A97D1C;
+  --paper:#EFE6D2; --paper2:#E6DAB9; --ink:#241C12;
+  --ink-muted:#6B5E48; --ink-faint:#9C8F71;
+  --line-paper:rgba(36,28,18,0.16); --line-paper-strong:rgba(36,28,18,0.28);
+  --red:#A8433A;
+  --disp:'Caveat',cursive; --mono:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--board);color:var(--chalk);line-height:1.5;padding-bottom:96px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:540px;margin:0 auto;padding:0 18px}
+img{max-width:100%;display:block}
+::selection{background:var(--gold);color:#1E2621}
+button{font-family:inherit}
+
+/* ── QUADRO (hero) ── */
+.chalk-tex{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+.board{position:relative;padding:20px 0 26px;background:
+  radial-gradient(ellipse 120% 90% at 30% -10%, rgba(255,255,255,0.05), transparent 60%),
+  var(--board);
+  border-bottom:1px dashed rgba(241,236,220,0.16)}
+.board-top{display:flex;align-items:center;justify-content:space-between}
+.stamp{display:flex;align-items:center;gap:10px}
+.stamp img{width:48px;height:48px;border-radius:50%;transform:rotate(-8deg);box-shadow:0 2px 8px rgba(0,0,0,0.4);border:2px solid rgba(241,236,220,0.2)}
+.stamp span{font-family:var(--mono);font-size:0.76rem;letter-spacing:0.03em;color:var(--chalk-dim);text-transform:uppercase}
+.big-stamp{position:absolute;right:-14px;bottom:-14px;width:92px;height:92px;border-radius:50%;transform:rotate(9deg);box-shadow:0 6px 18px rgba(0,0,0,0.5);border:3px solid var(--paper);z-index:3}
+.status{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.03em;text-transform:uppercase;color:var(--chalk-dim);display:flex;align-items:center;gap:6px}
+.status .dot{width:7px;height:7px;border-radius:50%;background:#6FBF73;box-shadow:0 0 6px #6FBF73}
+.status.closed .dot{background:#C15B4E;box-shadow:0 0 6px #C15B4E}
+
+.board-main{display:flex;gap:18px;align-items:flex-end;margin-top:22px;flex-wrap:wrap}
+.board-photo{flex-shrink:0;width:118px;height:118px;padding:6px 6px 20px;background:#fff;transform:rotate(-4deg);box-shadow:0 10px 24px rgba(0,0,0,0.35)}
+.board-photo img{width:100%;height:100%;object-fit:cover}
+.board-photo::after{content:'afiadinho hoje';position:absolute;margin-top:-16px;margin-left:6px;font-family:var(--disp);font-size:1rem;color:var(--ink)}
+.tape{position:absolute;width:46px;height:18px;background:rgba(212,175,78,0.35);top:-8px;left:36px;transform:rotate(-5deg);border:1px solid rgba(212,175,78,0.5)}
+.board-photo-wrap{position:relative;flex-shrink:0}
+
+.board-text h1{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,10vw,2.8rem);color:var(--chalk);line-height:0.95;text-shadow:0 2px 0 rgba(0,0,0,0.2)}
+.board-text p{font-size:0.84rem;color:var(--chalk-dim);margin-top:8px;max-width:240px}
+
+.facts{display:flex;flex-direction:column;gap:6px;margin-top:20px;font-family:var(--mono);font-size:0.74rem;color:var(--chalk-dim)}
+.facts span b{color:var(--gold);font-weight:700}
+
+.trust-strip{display:flex;gap:22px;margin-top:22px;padding-top:18px;border-top:1px dashed rgba(241,236,220,0.16)}
+.trust-item b{display:block;font-family:var(--mono);font-size:1.1rem;color:var(--gold);font-weight:700}
+.trust-item span{display:block;font-size:0.68rem;color:var(--chalk-faint);margin-top:2px}
+
+/* ── COMO FUNCIONA ── */
+.how{background:var(--paper);color:var(--ink);padding:18px 0}
+.how .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.how-step{display:flex;align-items:center;gap:8px;font-size:0.78rem;text-align:left}
+.how-step b{font-family:var(--mono);color:var(--gold-d);font-weight:700;font-size:0.9rem}
+.how-arrow{color:var(--ink-faint);font-size:0.9rem}
+@media(max-width:420px){.how-arrow{display:none}.how .wrap{flex-direction:column;align-items:flex-start;gap:10px}}
+
+/* ── HUMANO (foto real da entrega no balcao) ── */
+.humano{position:relative;height:120px;overflow:hidden;background:var(--board)}
+.humano img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;filter:saturate(1.05)}
+.humano-tag{position:absolute;left:18px;bottom:8px;font-family:var(--disp);font-size:1.15rem;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,0.7)}
+.humano::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(16,13,10,0.62) 100%)}
+
+/* ── MURAL (fotos reais da vitrine) ── */
+.mural{background:var(--board2);padding:20px 0 22px;border-bottom:1px dashed rgba(241,236,220,0.16)}
+.mural-head{padding:0 18px;margin-bottom:14px}
+.mural-tag{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--chalk-dim)}
+.mural-scroll{display:flex;gap:22px;overflow-x:auto;padding:6px 24px 10px;scrollbar-width:none}
+.mural-scroll::-webkit-scrollbar{display:none}
+.pin{flex-shrink:0;width:104px;background:#fff;padding:6px 6px 22px;box-shadow:0 8px 18px rgba(0,0,0,0.35);position:relative}
+.pin.r1{transform:rotate(-5deg)}
+.pin.r2{transform:rotate(4deg)}
+.pin.r3{transform:rotate(-2deg)}
+.pin img{width:100%;height:96px;object-fit:cover;object-position:50% 50%}
+.pin span{position:absolute;left:6px;right:6px;bottom:5px;font-family:var(--disp);font-size:0.85rem;color:var(--ink);text-align:center;line-height:1.1}
+
+/* ── PROVA (recibos) ── */
+.proof{padding:18px 0 4px}
+.proof-scroll{display:flex;gap:10px;overflow-x:auto;padding:0 18px 4px;scrollbar-width:none}
+.proof-scroll::-webkit-scrollbar{display:none}
+.receipt{flex-shrink:0;width:200px;background:var(--paper);color:var(--ink);padding:12px 14px;position:relative;
+  clip-path:polygon(0% 0%,100% 0%,100% 100%,92% 96%,84% 100%,76% 96%,68% 100%,60% 96%,52% 100%,44% 96%,36% 100%,28% 96%,20% 100%,12% 96%,4% 100%,0% 96%);
+  padding-bottom:18px}
+.receipt p{font-family:var(--mono);font-size:0.7rem;line-height:1.5}
+.receipt span{display:block;margin-top:8px;font-size:0.66rem;color:var(--ink-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.03em}
+
+/* ── NAV (abas) ── */
+.cat-nav{display:flex;gap:22px;overflow-x:auto;padding:18px 18px 0;position:sticky;top:0;background:var(--board);z-index:20;border-bottom:1px dashed rgba(241,236,220,0.16);scrollbar-width:none}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-btn{flex-shrink:0;display:flex;align-items:center;gap:7px;background:none;border:none;color:var(--chalk-faint);font-size:0.86rem;font-weight:600;padding:0 0 12px;white-space:nowrap;position:relative;transition:color .15s ease}
+.cat-btn svg{width:17px;height:17px;flex-shrink:0;opacity:.85}
+.cat-btn::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .2s ease}
+.cat-btn.active{color:var(--chalk)}
+.cat-btn.active::after{transform:scaleX(1)}
+
+main{padding-top:4px;background:var(--paper);color:var(--ink)}
+.cat-section{padding:22px 0 10px;counter-reset:item-num}
+.cat-title{display:flex;align-items:baseline;gap:10px;margin-bottom:2px}
+.cat-title h2{font-family:var(--disp);font-size:2rem;font-weight:700;color:var(--ink)}
+.cat-highlight{font-family:var(--mono);font-size:0.62rem;font-weight:700;color:#fff;background:var(--red);padding:3px 8px;letter-spacing:0.03em;text-transform:uppercase;transform:rotate(-2deg);display:inline-block}
+.cat-note{font-size:0.82rem;color:var(--ink-muted);margin-bottom:6px}
+
+/* ── ITENS (lista de menu, nao cards) ── */
+.item{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line-paper-strong)}
+.item::before{counter-increment:item-num;content:counter(item-num,decimal-leading-zero);font-family:var(--mono);font-size:0.72rem;color:var(--gold-d);font-weight:700;flex-shrink:0;width:20px}
+.item-ph{flex-shrink:0;width:44px;height:44px;overflow:hidden;border:1px solid var(--line-paper-strong)}
+.item-ph img{width:100%;height:100%;object-fit:cover}
+.item-info{flex:1;min-width:0}
+.item-info h3{font-size:0.93rem;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink)}
+.item-info p{font-size:0.75rem;color:var(--ink-faint);margin-top:2px}
+.item-price{font-family:var(--mono);font-weight:700;font-size:0.86rem;margin-top:5px;color:var(--ink-muted)}
+.item-add{flex-shrink:0;display:flex;align-items:center;gap:10px}
+.qty-btn{width:26px;height:26px;border:1px solid var(--line-paper-strong);background:none;font-family:var(--mono);font-size:1rem;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:transform .1s ease,background .1s ease}
+.qty-btn:active{transform:scale(.85);background:var(--paper2)}
+.qty-val{min-width:14px;text-align:center;font-family:var(--mono);font-weight:700;font-size:0.86rem}
+.item.just-added .item-info h3{color:var(--gold-d)}
+
+/* ── CARRINHO ── */
+.cart-bar{position:fixed;left:0;right:0;bottom:0;background:var(--board);color:var(--chalk);padding:14px 18px;z-index:30;box-shadow:0 -8px 28px rgba(0,0,0,0.35);border-top:1px dashed var(--gold);transform:translateY(110%);transition:transform .3s cubic-bezier(.16,.8,.3,1)}
+.cart-bar.show{transform:translateY(0)}
+.cart-bar-row{max-width:540px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.cart-bar .info{font-family:var(--mono);font-size:0.76rem;color:var(--chalk-dim)}
+.cart-bar .info b{display:block;font-family:var(--disp);font-size:1.5rem;color:var(--gold);font-weight:700}
+.cart-bar .btn{background:var(--gold);color:#241C12;font-weight:700;font-size:0.84rem;padding:12px 20px;border-radius:2px;border:none;display:flex;align-items:center;gap:6px;flex-shrink:0;transition:transform .1s ease;font-family:var(--mono)}
+.cart-bar .btn:active{transform:scale(.95)}
+
+/* ── CHECKOUT MODAL (recibo) ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(16,13,10,0.68);z-index:40;display:none;align-items:flex-end;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal{background:var(--paper);color:var(--ink);width:100%;max-width:540px;padding:24px 22px 28px;max-height:88vh;overflow-y:auto;border-top:3px dashed var(--gold-d)}
+.modal-handle{width:40px;height:4px;background:var(--line-paper-strong);border-radius:4px;margin:0 auto 16px}
+.modal h2{font-family:var(--disp);font-size:1.8rem;margin-bottom:14px}
+.modal-summary{border-top:1px dashed var(--line-paper-strong);border-bottom:1px dashed var(--line-paper-strong);padding:10px 0;margin-bottom:18px;max-height:140px;overflow-y:auto}
+.modal-summary .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:0.8rem;padding:4px 0;color:var(--ink-muted)}
+.modal-summary .row b{color:var(--ink);font-weight:700}
+.modal-total{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;font-weight:700;font-family:var(--mono);font-size:1rem;color:var(--ink)}
+.field{margin-bottom:14px}
+.field label{display:block;font-family:var(--mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.03em;color:var(--ink-muted);margin-bottom:6px}
+.field input{width:100%;padding:11px 0;border:none;border-bottom:1px solid var(--line-paper-strong);background:none;font-family:'Inter',sans-serif;font-size:0.94rem;color:var(--ink)}
+.field input:focus{outline:none;border-color:var(--gold-d)}
+.opt-group{display:flex;gap:10px}
+.opt{flex:1;border:1px solid var(--line-paper-strong);padding:11px;text-align:center;font-size:0.82rem;font-weight:600;color:var(--ink-muted);cursor:pointer;transition:.12s}
+.opt.sel{border-color:var(--gold-d);background:rgba(169,125,28,0.1);color:var(--ink)}
+.modal-send{width:100%;background:var(--ink);color:var(--gold);font-weight:700;font-size:0.9rem;padding:15px;border-radius:2px;border:none;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono)}
+.modal-send:active{transform:scale(.98)}
+.modal-close{position:absolute;top:18px;right:18px;width:28px;height:28px;background:none;border:1px solid var(--line-paper-strong);font-size:0.9rem;color:var(--ink)}
+
+footer{text-align:center;padding:28px 18px 10px;font-size:0.7rem;color:var(--ink-faint);font-family:var(--mono);background:var(--paper)}
+
+@media(prefers-reduced-motion:reduce){.cart-bar{transition:none}}
+@media(max-width:380px){.board-main{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="board chalk-tex">
+  <div class="wrap">
+    <div class="board-top">
+      <div class="stamp"><img src="assets/logo.jpg" alt="Cantinho do Pão"><span>Cantinho do Pão</span></div>
+      <div class="status" id="status-badge"><span class="dot"></span>Aberto agora</div>
+    </div>
+    <div class="board-main">
+      <div class="board-photo-wrap">
+        <div class="tape"></div>
+        <div class="board-photo"><img src="assets/hero.jpg" alt="Pão fresquinho da casa"></div>
+        <img class="big-stamp" src="assets/logo.jpg" alt="Selo Cantinho do Pão">
+      </div>
+      <div class="board-text">
+        <h1>Monte seu&nbsp;pedido</h1>
+        <p>Escolha os itens e finalize direto no nosso WhatsApp — sem enrolação.</p>
+      </div>
+    </div>
+    <div class="facts">
+      <span>📍 <b>R. do Catete, 500</b> — Mariana/MG</span>
+      <span>⭐ <b>4,5</b> — 74 avaliações reais no Google</span>
+      <span>🛵 Delivery <b>às quintas, 8h–16h</b></span>
+    </div>
+    <div class="trust-strip">
+      <div class="trust-item"><b>4,5★</b><span>74 avaliações Google</span></div>
+      <div class="trust-item"><b>2.488</b><span>seguidores reais</span></div>
+      <div class="trust-item"><b>05h30</b><span>abrimos todo dia</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="how">
+  <div class="wrap">
+    <div class="how-step"><b>01</b><span>Escolha os itens no cardápio</span></div>
+    <div class="how-arrow">→</div>
+    <div class="how-step"><b>02</b><span>Diga seu nome e retirada ou entrega</span></div>
+    <div class="how-arrow">→</div>
+    <div class="how-step"><b>03</b><span>Confirme no WhatsApp — pronto</span></div>
+  </div>
+</section>
+
+<div class="humano">
+  <img src="assets/equipe.jpg" alt="Nossa equipe entregando um pedido no balcão">
+  <div class="humano-tag">feito à mão, entregue à mão — todo dia</div>
+</div>
+
+<div class="mural chalk-tex">
+  <div class="mural-head">
+    <span class="mural-tag">direto da nossa vitrine</span>
+  </div>
+  <div class="mural-scroll">
+    <div class="pin r1"><img src="assets/hero.jpg" alt="Pão francês fresquinho"><span>pão de todo dia</span></div>
+    <div class="pin r3"><img src="assets/bolo-chocolate.jpg" alt="Bolo de chocolate da vitrine"><span>bolo de chocolate</span></div>
+    <div class="pin r1"><img src="assets/sonho.jpg" alt="Sonho recheado da vitrine"><span>sonho recheado</span></div>
+    <div class="pin r2"><img src="assets/cupcake.jpg" alt="Cupcake gourmet da vitrine"><span>cupcake gourmet</span></div>
+    <div class="pin r2"><img src="assets/coxinha.jpg" alt="Coxinha de frango (imagem ilustrativa)"><span>coxinha</span></div>
+  </div>
+</div>
+
+<div class="proof">
+  <div class="proof-scroll">
+    <div class="receipt"><p>"Salgados de extrema qualidade e variedade e atendentes maravilhosos."</p><span>Felippe S. — Google</span></div>
+    <div class="receipt"><p>"Produtos novinhos, frescos e de qualidade."</p><span>Gabriella L. — Google</span></div>
+    <div class="receipt"><p>"Uma boa variedade de produtos e muito gostosos."</p><span>Avaliação real — Google</span></div>
+  </div>
+</div>
+
+<nav class="cat-nav chalk-tex" id="cat-nav">
+  <button class="cat-btn active" data-cat="salgados"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9c0-3 3.5-6 8-6s8 3 8 6c0 4-4 10-8 11-4-1-8-7-8-11z"/><path d="M9 10c1 1 5 1 6 0"/></svg>Salgados</button>
+  <button class="cat-btn" data-cat="paes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c0-5 4-9 9-9s9 4 9 9c0 2-2 3-9 3s-9-1-9-3z"/><path d="M8 9.5c.5 1 .5 3 0 4M12 8c.5 1.5.5 4.5 0 6M16 9.5c.5 1 .5 3 0 4"/></svg>Pães</button>
+  <button class="cat-btn" data-cat="doces"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14l-1.5 8h-11z"/><path d="M5 12c0-4 3-6 7-6s7 2 7 6"/><circle cx="12" cy="4.5" r="1.3"/></svg>Bolos & Doces</button>
+  <button class="cat-btn" data-cat="bebidas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l-1 12a3 3 0 01-3 3H10a3 3 0 01-3-3z"/><path d="M15 7h2.5a2 2 0 010 4H15"/><path d="M9 1.5c-.5 1 .5 1.3 0 2.5M12.5 1.5c-.5 1 .5 1.3 0 2.5"/></svg>Bebidas</button>
+</nav>
+
+<main>
+<div class="wrap">
+
+  <section class="cat-section" data-cat="salgados">
+    <div class="cat-title"><h2>Salgados</h2><span class="cat-highlight">+ elogiado</span></div>
+    <p class="cat-note">O item que mais aparece nas avaliações dos clientes.</p>
+    <div class="item" data-name="Coxinha de frango" data-price="8">
+      <div class="item-ph"><img src="assets/coxinha.jpg" alt="Coxinha de frango (imagem ilustrativa)"></div>
+      <div class="item-info"><h3>Coxinha de frango</h3><p>Feita na hora, casquinha crocante — imagem ilustrativa</p><div class="item-price">R$8,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Empada de frango" data-price="7">
+      <div class="item-ph"><img src="assets/empada.jpg" alt="Empada de frango (imagem ilustrativa)"></div>
+      <div class="item-info"><h3>Empada de frango</h3><p>Massa amanteigada, recheio generoso — imagem ilustrativa</p><div class="item-price">R$7,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Kibe" data-price="7">
+      <div class="item-ph"><img src="assets/kibe.jpg" alt="Kibe (imagem ilustrativa)"></div>
+      <div class="item-info"><h3>Kibe</h3><p>Crocante por fora, suculento por dentro — imagem ilustrativa</p><div class="item-price">R$7,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Pastel de queijo" data-price="7">
+      <div class="item-info"><h3>Pastel de queijo</h3><p>Assado, sem fritura</p><div class="item-price">R$7,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+  </section>
+
+  <section class="cat-section" data-cat="paes" style="display:none">
+    <div class="cat-title"><h2>Pães</h2></div>
+    <p class="cat-note">Fornada nova pela manhã e no fim da tarde.</p>
+    <div class="item" data-name="Pão francês (unidade)" data-price="1">
+      <div class="item-info"><h3>Pão francês (unidade)</h3><p>Quentinho, casca crocante</p><div class="item-price">R$1,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Pão de queijo (6un)" data-price="14">
+      <div class="item-info"><h3>Pão de queijo (6un)</h3><p>Receita mineira, forno a lenha</p><div class="item-price">R$14,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Pão de forma integral" data-price="12">
+      <div class="item-info"><h3>Pão de forma integral</h3><p>Fatiado, sem conservantes</p><div class="item-price">R$12,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+  </section>
+
+  <section class="cat-section" data-cat="doces" style="display:none">
+    <div class="cat-title"><h2>Bolos & Doces</h2></div>
+    <p class="cat-note">Fatia pra hoje ou bolo inteiro por encomenda.</p>
+    <div class="item" data-name="Fatia de bolo de chocolate" data-price="9">
+      <div class="item-ph"><img src="assets/bolo-chocolate.jpg" alt="Bolo de chocolate da vitrine"></div>
+      <div class="item-info"><h3>Fatia de bolo de chocolate</h3><p>Cobertura cremosa — foto real da vitrine</p><div class="item-price">R$9,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Fatia de bolo de fubá" data-price="9">
+      <div class="item-info"><h3>Fatia de bolo de fubá</h3><p>Com queijo, receita da casa</p><div class="item-price">R$9,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Sonho recheado" data-price="8">
+      <div class="item-ph"><img src="assets/sonho.jpg" alt="Sonho recheado da vitrine"></div>
+      <div class="item-info"><h3>Sonho recheado</h3><p>Creme e cereja — foto real da vitrine</p><div class="item-price">R$8,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Cupcake gourmet" data-price="9">
+      <div class="item-ph"><img src="assets/cupcake.jpg" alt="Cupcake gourmet da vitrine"></div>
+      <div class="item-info"><h3>Cupcake gourmet</h3><p>Cobertura e cereja — foto real da vitrine</p><div class="item-price">R$9,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+  </section>
+
+  <section class="cat-section" data-cat="bebidas" style="display:none">
+    <div class="cat-title"><h2>Bebidas</h2></div>
+    <p class="cat-note">Pra acompanhar o lanche.</p>
+    <div class="item" data-name="Café coado" data-price="5">
+      <div class="item-info"><h3>Café coado</h3><p>Passado na hora</p><div class="item-price">R$5,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+    <div class="item" data-name="Suco natural (copo 300ml)" data-price="7">
+      <div class="item-info"><h3>Suco natural (300ml)</h3><p>Fruta da estação</p><div class="item-price">R$7,00</div></div>
+      <div class="item-add"><button class="qty-btn minus">−</button><span class="qty-val">0</span><button class="qty-btn plus">+</button></div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<div class="cart-bar chalk-tex" id="cart-bar">
+  <div class="cart-bar-row">
+    <div class="info">PEDIDO<b id="cart-total">R$0,00</b></div>
+    <button class="btn" id="cart-open">VER PEDIDO →</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-handle"></div>
+    <h2>Confirmar pedido</h2>
+    <div class="modal-summary" id="modal-summary"></div>
+    <div class="field">
+      <label for="f-name">Seu nome</label>
+      <input type="text" id="f-name" placeholder="Como podemos te chamar?">
+    </div>
+    <div class="field">
+      <label>Retirada ou entrega</label>
+      <div class="opt-group">
+        <div class="opt sel" data-mode="Retirada na loja">Retirada na loja</div>
+        <div class="opt" data-mode="Entrega (quinta-feira)">Entrega (quinta)</div>
+      </div>
+    </div>
+    <div class="field" id="f-address-field" style="display:none">
+      <label for="f-address">Endereço de entrega</label>
+      <input type="text" id="f-address" placeholder="Rua, número, bairro">
+    </div>
+    <button class="modal-send" id="modal-send">ENVIAR PEDIDO NO WHATSAPP →</button>
+  </div>
+</div>
+
+<footer>
+  CARDÁPIO DIGITAL — PADARIA E LANCHONETE CANTINHO DO PÃO · MARIANA/MG<br>
+  Protótipo SyncTech Automation<br><br>
+  Fotos do pão, bolo de chocolate, sonho, cupcake e da entrega no balcão são reais, tiradas do Instagram oficial. Fotos marcadas "imagem ilustrativa" (coxinha, empada, kibe) são geradas por IA só pra exemplo — as demais categorias ainda não têm imagem.
+</footer>
+
+<script>
+(function(){
+  var WHATSAPP = '553137913010';
+  var cart = {};
+  var deliveryMode = 'Retirada na loja';
+
+  document.querySelectorAll('.cat-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.dataset.cat;
+      document.querySelectorAll('.cat-section').forEach(function(s){
+        s.style.display = (s.dataset.cat === cat) ? '' : 'none';
+      });
+    });
+  });
+
+  document.querySelectorAll('.item').forEach(function(item){
+    var name = item.dataset.name;
+    var price = parseFloat(item.dataset.price);
+    var valEl = item.querySelector('.qty-val');
+    var minus = item.querySelector('.minus');
+    var plus = item.querySelector('.plus');
+
+    function update(qty){
+      valEl.textContent = qty;
+      if (qty > 0) cart[name] = { qty: qty, price: price };
+      else delete cart[name];
+      renderCart();
+    }
+
+    plus.addEventListener('click', function(){
+      var q = (cart[name] ? cart[name].qty : 0) + 1;
+      update(q);
+      item.classList.add('just-added');
+      setTimeout(function(){ item.classList.remove('just-added'); }, 500);
+    });
+    minus.addEventListener('click', function(){
+      var q = Math.max(0, (cart[name] ? cart[name].qty : 0) - 1);
+      update(q);
+    });
+  });
+
+  function cartTotals(){
+    var count = 0, total = 0;
+    Object.keys(cart).forEach(function(k){ count += cart[k].qty; total += cart[k].qty * cart[k].price; });
+    return { count: count, total: total };
+  }
+
+  function renderCart(){
+    var t = cartTotals();
+    var bar = document.getElementById('cart-bar');
+    if (t.count > 0) {
+      bar.classList.add('show');
+      document.getElementById('cart-total').textContent = t.count + 'x — R$' + t.total.toFixed(2).replace('.', ',');
+    } else {
+      bar.classList.remove('show');
+    }
+  }
+
+  var overlay = document.getElementById('modal-overlay');
+  document.getElementById('cart-open').addEventListener('click', function(){
+    renderModalSummary();
+    overlay.classList.add('show');
+  });
+  document.getElementById('modal-close').addEventListener('click', function(){ overlay.classList.remove('show'); });
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) overlay.classList.remove('show'); });
+
+  var addressField = document.getElementById('f-address-field');
+  var addressInput = document.getElementById('f-address');
+  document.querySelectorAll('.opt').forEach(function(opt){
+    opt.addEventListener('click', function(){
+      document.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel'); });
+      opt.classList.add('sel');
+      deliveryMode = opt.dataset.mode;
+      addressField.style.display = (deliveryMode === 'Retirada na loja') ? 'none' : '';
+    });
+  });
+
+  function renderModalSummary(){
+    var el = document.getElementById('modal-summary');
+    var html = '';
+    var t = cartTotals();
+    Object.keys(cart).forEach(function(k){
+      var c = cart[k];
+      html += '<div class="row"><span>' + c.qty + 'x ' + k + '</span><b>R$' + (c.qty * c.price).toFixed(2).replace('.', ',') + '</b></div>';
+    });
+    html += '<div class="modal-total"><span>TOTAL</span><span>R$' + t.total.toFixed(2).replace('.', ',') + '</span></div>';
+    el.innerHTML = html;
+  }
+
+  document.getElementById('modal-send').addEventListener('click', function(){
+    var t = cartTotals();
+    if (t.count === 0) return;
+    var name = document.getElementById('f-name').value.trim();
+    var address = addressInput.value.trim();
+    var isDelivery = deliveryMode !== 'Retirada na loja';
+
+    if (!name) { document.getElementById('f-name').focus(); return; }
+    if (isDelivery && !address) { addressInput.focus(); return; }
+
+    var lines = ['Olá! Quero fazer um pedido:', ''];
+    Object.keys(cart).forEach(function(k){
+      var c = cart[k];
+      lines.push('• ' + c.qty + 'x ' + k + ' — R$' + (c.qty * c.price).toFixed(2).replace('.', ','));
+    });
+    lines.push('');
+    lines.push('Total: R$' + t.total.toFixed(2).replace('.', ','));
+    lines.push('');
+    lines.push('Nome: ' + name);
+    if (isDelivery) {
+      lines.push('Entrega — ' + deliveryMode);
+      lines.push('Endereço: ' + address);
+    } else {
+      lines.push('Retirada na loja');
+    }
+    var msg = encodeURIComponent(lines.join('\n'));
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + msg, '_blank');
+  });
+
+  (function(){
+    var badge = document.getElementById('status-badge');
+    var now = new Date();
+    var day = now.getDay();
+    var mins = now.getHours() * 60 + now.getMinutes();
+    var open = false;
+    if (day >= 1 && day <= 5) open = mins >= 330 && mins < 1200;
+    else if (day === 6) open = mins >= 330 && mins < 1140;
+    if (!open) {
+      badge.classList.add('closed');
+      badge.innerHTML = '<span class="dot"></span>Fechado agora';
+    }
+  })();
+})();
+</script>
+
+</body>
+</html>
